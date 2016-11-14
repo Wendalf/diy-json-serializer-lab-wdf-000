@@ -11,12 +11,13 @@
     $(".js-next").on("click", function() {
       var nextId = parseInt($(".js-next").attr("data-id")) + 1;
       $.get("/products/" + nextId + "/data", function(data) {
-        var d = JSON.parse(data);
-        $(".productName").text(d.name);
-        $(".productPrice").text(d.price);
-        $(".productInventory").text(d.inventory);
-        $(".productDescription").text(d.description);
-        $(".js-next").attr("data-id", d.id);
+        // var d = JSON.parse(data);
+       // debugger;
+        $(".productName").text(data["name"]);
+        $(".productPrice").text(data["price"]);
+        $(".productInventory").text(data["inventory"]);
+        $(".productDescription").text(data["description"]);
+        $(".js-next").attr("data-id", data["id"]);
       });
     });
   });
